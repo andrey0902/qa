@@ -1,0 +1,88 @@
+@import "../../../styles/variables";
+.wrapper {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.title {
+  display: block;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+.btn {
+
+  &-width {
+    width: 100%;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  &-facebook {
+    background: $blue-button;
+  }
+
+  &-google {
+    background: $red-button;
+  }
+
+  &-submit {
+    color: #fff !important;
+    background-color: $coral-button !important;
+  }
+
+  &-submit.valid {
+    background-color: $orange !important;
+  }
+}
+
+mat-form-field {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  color: $gray-text !important;
+}
+
+mat-error {
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-forgot {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.forgot-password {
+  border: none;
+  color: $orange;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.no-account {
+  margin-top: 30px;
+  color: $gray-text;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 13px;
+}
+
+.link {
+  text-decoration: none;
+  color: $orange;
+}
+
+.server-error {
+  color: $red-error;
+  text-align: center;
+  padding: 0 25px 30px;
+
+  font-family: 'Poppins', sans-serif;
+  line-height: 18px;
+}
