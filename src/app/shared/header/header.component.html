@@ -1,0 +1,22 @@
+<div class="header">
+  <div class="header-logo">
+    <qa-logo></qa-logo>
+  </div>
+  <div class="header-profile">
+  <div class="header-profile-wrappeer">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <span class="user-name">{{user?.name}}</span>
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <a mat-menu-item class="link" routerLinkActive="active" [routerLink]="['/profile']">My Settings</a>
+        <a class="link" routerLinkActive="active" mat-menu-item [routerLink]="['/membership']">Membership options</a>
+        <a class="link" routerLinkActive="active" mat-menu-item [routerLink]="['/contact-us']">Contact us</a>
+        <a class="link" routerLinkActive="active" mat-menu-item [routerLink]="['/FAQ']">FAQ</a>
+      <button mat-menu-item (click)="logOut()">
+        <span class="link">Log out</span>
+      </button>
+    </mat-menu>
+  </div>
+  </div>
+</div>

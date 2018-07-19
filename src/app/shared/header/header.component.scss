@@ -1,0 +1,95 @@
+@import "../../../styles/variables";
+
+:host {
+  display: block;
+}
+.header {
+  border-bottom: 1px solid $gray-border;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 30px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #141460;;
+
+  &-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &-profile {
+    display: flex;
+    align-items: center;
+  }
+}
+
+mat-icon {
+  color: $light-white;
+}
+
+.user-name {
+  color: $light-white;
+  font-family: 'Amiko', sans-serif;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 115px;
+  text-overflow: ellipsis;
+}
+
+.link {
+  color: $gray-text;
+  text-decoration: none;
+  font-family: 'Amiko', sans-serif;;
+  font-size: 13px;
+
+}
+.active {
+  font-weight: 600;
+  background-color: lighten($gray-text, 40%);
+}
+
+.has-plan {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 5px 20px;
+  width: 80%;
+  max-width: 1060px;
+  min-height: 50px;
+  background-color: #9a98a7;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.23);
+  display: flex;
+  align-items: center;
+}
+
+.closed {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  .closed {
+    right: 15px;
+  }
+}

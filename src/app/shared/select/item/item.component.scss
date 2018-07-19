@@ -1,0 +1,54 @@
+@import "../../../../styles/variables";
+
+:host {
+  display: block;
+}
+
+.option {
+  display: flex;
+  padding: 10px 15px;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    transition: .3s ease;
+    background-color: #dadada;
+  }
+
+  &-checkbox {
+    display: flex;
+    padding: 3px 15px 3px 3px;
+  }
+
+  &-text-format {
+    color: $light-gray;
+    font-family: 'Amiko', sans-serif;
+    font-size: 13px;
+  }
+}
+
+.checkbox-view {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 0;
+
+}
+.checkbox-view.checked {
+  background-color: $orange;
+  border: none;
+}
+
+.arrow-done {
+  position: absolute;
+  fill: orange;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1px;
+}

@@ -18,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.auth.getToken();
     if (token) {
-      request = request.clone({headers: request.headers.set('token', token)});
+      request = request.clone({headers: request.headers.set('Authorization', `JWT ${token}`)});
     }
 
     return next.handle( request).pipe(tap((event: HttpEvent<any>) => {
@@ -28,9 +28,9 @@ export class TokenInterceptor implements HttpInterceptor {
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401) {
-          this.auth.logOut();
+          //this.auth.logOut();
         } else if (err.status === 402) {
-          this.router.navigate(['/choose-membership']);
+          this.router.navigate(['/']);
         }
       }
     }));

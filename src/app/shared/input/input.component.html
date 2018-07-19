@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="input-wrapper">
+
+    <input [type]="type" #simpleInput class="input-simple"
+           [ngModel]="value"
+           (ngModelChange)="onChange($event)"
+           [placeholder]="placeholder ? placeholder : ''"
+           [disabled]="disabled"
+           [class.disabled]="disabled"
+           [class.hasError]="ngControl?.invalid && ngControl.touched && focus"
+           (blur)="blurFocus()"
+           [ngStyle]="style"
+           [textMask]="textMask"
+           *ngIf="textMask; else noMask"
+    >
+  </div>
+  <div class="mat-form-field-subscript-wrapper " *ngIf="ngControl?.invalid && ngControl.touched && focus">
+    <p class="mat-error" >{{getErrorMessage(ngControl)}}</p>
+  </div>
+</div>
+
+<ng-template #noMask>
+  <input [type]="type" #simpleInput class="input-simple"
+         [ngModel]="value"
+         (ngModelChange)="onChange($event)"
+         [placeholder]="placeholder ? placeholder : ''"
+         [disabled]="disabled"
+         [class.disabled]="disabled"
+         [class.hasError]="ngControl?.invalid && ngControl.touched && focus"
+         (blur)="blurFocus()"
+         [ngStyle]="style"
+  >
+</ng-template>

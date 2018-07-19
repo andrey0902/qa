@@ -1,0 +1,66 @@
+<h2 mat-dialog-title class="title"> Add Order
+</h2>
+<mat-dialog-content>
+  <form class="form-filter"
+        [formGroup]="orderForm"
+        (ngSubmit)="onSubmit(orderForm)"
+        #form="ngForm"
+  >
+    <div class="form-name">
+      <label for="name" class="filter-name">
+        Name
+      </label>
+      <qa-input formControlName="name" [type]="'text'" id="name"></qa-input>
+    </div>
+    <div class="form-bookmakers">
+      <label for="quantity" class="filter-bookmaker">
+        Quantity
+      </label>
+      <qa-input-number id="quantity" [minValue]="0" [maxValue]="100" [step]="1" formControlName="quantity" [decimal]="true"></qa-input-number>
+    </div>
+    <div class="form-markets">
+      <label for="cost" class="filter-markets">
+        Cost
+      </label>
+      <qa-input-number id="cost" [minValue]="0" [maxValue]="10000" [step]="1" formControlName="cost" [decimal]="true"></qa-input-number>
+    </div>
+
+    <div class="form-name">
+      <label for="status" class="filter-name">
+        Status
+      </label>
+      <!--<qa-input formControlName="status" [type]="'text'" id="status"></qa-input>-->
+      <qa-select [options]="statusList"
+                   [settings]="statusSettings"
+                   formControlName="status"
+                   id="status"
+      ></qa-select>
+
+    </div>
+
+    <div class="form-name">
+      <label for="type" class="filter-name">
+        Bid Type
+      </label>
+      <qa-select [options]="bidType"
+                 [settings]="statusSettings"
+                 formControlName="bidType"
+                 id="type"
+      ></qa-select>
+    </div>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="action" [class.flex-between]="canDelete">
+    <button mat-button class="btn edit text-avenir-medium" *ngIf="canDelete" (click)="delete()">Delete</button>
+    <button class="btn btn-width" (click)="form.ngSubmit.emit()">Save</button>
+    <!--<odds-button [invalid]=" orderForm.invalid"-->
+                 <!--[fortSize]="'16px'"-->
+                 <!--[text]="'Save'"-->
+                 <!--[type]="'submit'"-->
+                 <!--(click)="form.ngSubmit.emit()"-->
+    <!--&gt;-->
+    <!--</odds-button>-->
+  </div>
+</mat-dialog-actions>

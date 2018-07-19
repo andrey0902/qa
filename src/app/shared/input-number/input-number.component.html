@@ -1,0 +1,60 @@
+<div class="number-input-wrapper">
+  <div class="wrapper"
+       [class.active]="focus"
+       oddsClickOutSide
+       (clickOutside)="onBlur()"
+       [class.hasError]="ngControl?.invalid && ngControl.touched && !focus"
+  >
+    <!--<pre>-->
+     <!--error:  {{ngControl?.invalid && ngControl.touched && !focus }}-->
+     <!--error!focus:  {{ !focus }}-->
+    <!--</pre>-->
+    <input type="number"
+           #inputNumber
+           class="number-input"
+           [disabled]="disabled"
+           [class.disabled]="disabled"
+           (keyup)="onChange(inputNumber.value)"
+           (change)="onChange(inputNumber.value)"
+           (focus)="onFocus()"
+           [min]="minValue"
+           [max]="maxValue"
+
+    >
+    <div class="button-wrapper">
+      <button type="button" class="up" (click)="increment(); onFocus();">
+        <span class="field-marc"
+        >
+          <span class="rotate">
+                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="10px" height="10px" viewBox="0 0 451.847 451.847" style="enable-background:new 0 0 451.847 451.847;"
+         xml:space="preserve">
+          <g>
+            <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+              c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+              c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+          </g>
+        </svg>
+          </span>
+      </span>
+      </button>
+      <button type="button" class="down" (click)="decrement(); onFocus();" >
+        <span class="field-marc"
+        >
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       width="10px" height="10px" viewBox="0 0 451.847 451.847" style="enable-background:new 0 0 451.847 451.847;"
+       xml:space="preserve">
+      <g>
+        <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+          c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+          c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+      </g>
+    </svg>
+  </span>
+      </button>
+    </div>
+  </div>
+  <div class="mat-form-field-subscript-wrapper " *ngIf="ngControl?.invalid && ngControl.touched && !focus">
+    <p class="mat-error" >{{getErrorMessage(ngControl)}}</p>
+  </div>
+</div>

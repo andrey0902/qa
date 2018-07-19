@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <qa-field [title]="title"
+             (click)="toggleDropdown($event)"
+             [disabled]="disabled"
+             [isVisible]="isVisible"
+             [hasError]="ngControl?.invalid && ngControl.touched && focus"
+             [class.none]="settings.enableSearch && isVisible"
+  ></qa-field>
+  <qa-search *ngIf="settings.enableSearch && isVisible" [settings]="settings" [texts]="texts" (search)="getSearch($event)"></qa-search>
+  <ng-container *ngIf="(initialize && options?.length || !isVisible); else noFound">
+    <qa-list *ngIf="isVisible"
+               [maxHeight]="settings.maxHeight"
+               [isVisible]="isVisible"
+               [filteredOptions]="filteredOptions"
+               [showCheckAll]="settings.showCheckAll"
+               [checkAllText]="texts.checkAll"
+               [options]="options"
+               [settings]="settings"
+               [texts]="texts"
+               (isChecked)="onSelect($event)"
+    ></qa-list>
+    <div class="mat-form-field-subscript-wrapper " *ngIf="ngControl?.invalid && ngControl.touched && focus">
+      <p class="mat-error" >{{getErrorMessage(ngControl)}}</p>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #noFound>
+  <div class="no-found">
+    {{texts.searchEmptyResult}}
+  </div>
+</ng-template>

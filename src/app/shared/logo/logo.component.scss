@@ -1,0 +1,24 @@
+@import "./../../../styles/variables";
+.logo {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.img-logo {
+  max-height: 50px;
+}
+
+.orange {
+  color: $orange;
+  margin-right: 7px;
+  font-weight: bold;
+  font-family: HelveticaNeueCondensedBold;
+}
+
+.blue {
+  color: $blue-logo;
+  font-family: HelveticaNeueThin;
+}

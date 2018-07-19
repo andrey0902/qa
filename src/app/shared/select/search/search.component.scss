@@ -1,0 +1,39 @@
+@import "../../../../styles/variables";
+
+.input-group {
+  display: flex;
+  //padding: 10px 15px;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+  padding: 7px 20px 7px 15px;
+  border: 1px solid $orange;
+}
+
+.btn-clear {
+  position: absolute;
+  top: 20%;
+  right: 25px;
+  border: none;
+  background-color: transparent;
+  width: 15px;
+  height: 15px;
+
+  & i {
+    font-size: 16px;
+    color: grey;
+    cursor: pointer;
+  }
+}
+
+.form-control {
+  border: none;
+  padding-right: 35px;
+  background-color: transparent;
+  width: 100%;
+
+  &:focus {
+  outline: none;
+  }
+}

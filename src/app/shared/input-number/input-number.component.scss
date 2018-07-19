@@ -1,0 +1,170 @@
+@import "../../../styles/variables";
+:host {
+  display: block;
+  width: 100%;
+}
+.wrapper {
+  position: relative;
+  border: 1px solid $gray-border;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  &.active {
+    border-color: $orange;
+  }
+
+  &.hasError {
+    border-color: $error;
+  }
+}
+
+.number-input {
+  border: none;
+  display: block;
+  width: 100%;
+  outline: none;
+  border-radius: 4px;
+  height: 30px;
+  padding: 7px 40px 7px 10px;
+  background-color: #fff;
+  color: $gray-text;
+  font-family: AvenirBook;
+  font-size: 13px;
+
+  -moz-appearance: textfield;
+
+  &::-moz-focus-inner {
+    border:0;
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 15px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.down, .up {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  width: 15px;
+  height: 14px;
+  cursor: pointer;
+  transition: .3s ease;
+
+}
+
+.down:hover .field-marc svg, .up:hover .field-marc svg {
+  fill: #fa5518;
+}
+
+.up {
+  //margin-bottom: 1px;
+}
+
+
+.field {
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  padding: 7px 20px 7px 10px;
+  cursor: pointer;
+  position: relative;
+
+  &-title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-marc {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -70%);
+    svg {
+      fill: $orange;
+    }
+  }
+}
+
+.rotate {
+  transform: rotateX(180deg);
+  display: block;
+}
+
+
+.mat-raised-button {
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+   min-width: 10px;
+   line-height: 10px;
+  padding: 0 0;
+  border-radius: 2px;
+  transform: translate3d(0,0,0);
+  transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+
+.mat-raised-button:not([class*=mat-elevation-z]) {
+   box-shadow: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.mat-error {
+  color: $error;
+  text-align: left;
+  font-size: 100%;
+}
+.mat-form-field-subscript-wrapper {
+  position: absolute;
+  width: 100%;
+  margin-top: .54167em;
+  top: calc(100% - 1.66667em);
+}
+
+.number-input-wrapper {
+  position: relative;
+  padding-bottom: 1.25em;
+}

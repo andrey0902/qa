@@ -1,0 +1,13 @@
+<div class="input-group search-container" *ngIf="settings.enableSearch">
+  <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </span>
+  </div>
+  <input type="text" class="form-control" [formControl]="filterControl" [placeholder]="texts.searchPlaceholder">
+    <button class="btn-clear" type="button"
+            (click)="clearSearch($event)"
+            *ngIf="filterControl.value && filterControl.value.length > 0">
+      <i class="material-icons">close</i>
+    </button>
+</div>

@@ -1,0 +1,54 @@
+@import "../../../../styles/variables";
+:host {
+  display: block;
+}
+
+.field {
+  border: 1px solid $gray-border;
+  border-radius: 4px;
+  padding: 7px 20px 7px 10px;
+  cursor: pointer;
+  position: relative;
+
+  &.active {
+    border: 1px solid $orange;
+  }
+
+  &.hasError {
+    border-color: $error;
+  }
+
+  &-title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $light-gray;
+    height: 15px;
+    font-family: 'Amiko', sans-serif;
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  &-marc {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    svg {
+      fill: $orange;
+    }
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hide {
+  opacity: 0;
+}
+
+

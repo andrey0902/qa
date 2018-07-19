@@ -1,0 +1,19 @@
+<div class="wrapper" *ngIf="orders?.length">
+  <mat-card class="item-order" *ngFor="let order of orders">
+    <mat-card-title>
+      Order name: <span>{{order?.name}}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <p>Order cost: <span>{{order?.cost}}</span></p>
+      <p>Order status: <span>{{order?.status[0]['name']}}</span></p>
+      <p>Bid type: <span>{{order?.bidType[0]['name']}}</span></p>
+    </mat-card-subtitle>
+    <mat-card-actions>
+      <button type="button" mat-raised-button class="btn btn-width"
+              (click)="onEdit(order)"
+      >
+        Edit Order
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
