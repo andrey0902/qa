@@ -8,11 +8,11 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-4 col-sm-7">
         <form [formGroup]="signIn" (submit)="onSubmit( signIn)">
-          <!--<div class="server-error"-->
-               <!--*ngIf="serverError"-->
-          <!--&gt;-->
-            <!--<odds-error [form]="signIn" [errors]="serverError" [errorName]="'none_field'"></odds-error>-->
-          <!--</div>-->
+          <div class="server-error"
+               *ngIf="serverError"
+          >
+            <qa-error-non [form]="signIn" [errors]="serverError" [errorName]="'non_field_errors'"></qa-error-non>
+          </div>
           <div class="form-name">
             <mat-form-field>
               <input matInput placeholder="Name" formControlName="username" type="text">

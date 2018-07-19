@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable ,  BehaviorSubject } from 'rxjs';
 import { SessionService } from './session-service';
 
-import { ConfigService } from '../configs/config.service';
 import { tap, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../model/User-model';
@@ -38,21 +37,21 @@ export class ProfileService {
   }
 
   public updateUser(data) {
-    return this.http.patch(ConfigService.userDataPath, data)
-      .pipe(tap((response: any) => {
-          this.update(response.data);
-        }),
-        map((response: any) => new UserModel(response.data) ));
+    // return this.http.patch(ConfigService.userDataPath, data)
+    //   .pipe(tap((response: any) => {
+    //       this.update(response.data);
+    //     }),
+    //     map((response: any) => new UserModel(response.data) ));
   }
 
-  public getUserAccount(): Observable<UserModel> {
-    return this.http.get(ConfigService.userDataPath)
-      .pipe(tap((response: any) => {
-        if (response.data) {
-          this.update(response.data);
-        }
-      }), map((response: any) => {
-        return new UserModel(response.data);
-      }));
+  public getUserAccount() {
+    // return this.http.get(ConfigService.userDataPath)
+    //   .pipe(tap((response: any) => {
+    //     if (response.data) {
+    //       this.update(response.data);
+    //     }
+    //   }), map((response: any) => {
+    //     return new UserModel(response.data);
+    //   }));
   }
 }

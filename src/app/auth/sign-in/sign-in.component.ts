@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService } from '../shared/service/auth.service';
+import { Router } from '@angular/router';
+import { AuthCoreService } from '../../core/services/auth-core.service';
 
 @Component({
   selector: 'qa-sign-in',
@@ -12,7 +13,8 @@ export class SignInComponent implements OnInit {
   public serverError: any;
   public hide = true;
   constructor(private fb: FormBuilder,
-              private authService: AuthService) { }
+              private authService: AuthCoreService,
+              private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -27,11 +29,14 @@ export class SignInComponent implements OnInit {
   }
 
   public onSubmit(form: FormGroup): void {
-    console.log('form', form.value);
     this.authService.login(form.value)
       .subscribe(val => {
         console.log(val);
-      });
+        this.router.navigate(['/']);
+      },
+        error => {
+        this.serverError = error.error;
+        });
   }
 
 }

@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
 import { AuthService } from './shared/service/auth.service';
 import { ServerErrorModule } from '../shared/server-error/server-error.module';
+import { ServerNonErrorModule } from '../shared/server-error-non/server-error.module';
+import { AuthCoreService } from '../core/services/auth-core.service';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { ServerErrorModule } from '../shared/server-error/server-error.module';
     MatIconModule,
     MatButtonModule,
     ServerErrorModule,
+    ServerNonErrorModule,
   ],
   declarations: [
     SignInComponent,
@@ -28,7 +31,8 @@ import { ServerErrorModule } from '../shared/server-error/server-error.module';
     SignUpComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthCoreService,
   ]
 })
 export class AuthModule { }

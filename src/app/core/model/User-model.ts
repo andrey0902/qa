@@ -6,6 +6,10 @@ export class UserModel {
   public lastName: string;
 
   constructor(data) {
-    this.id = data;
+    this.id = data.pk;
+    this.email = data.email;
+    this.firstName = data.first_name;
+    this.lastName = data.last_name;
+    this.name = data.username;
   }
 }

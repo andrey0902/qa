@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../shared/service/auth.service';
 import { Router } from '@angular/router';
+import { AuthCoreService } from '../../core/services/auth-core.service';
 
 @Component({
   selector: 'qa-sign-up',
@@ -13,7 +13,7 @@ export class SignUpComponent implements OnInit {
   public serverError: any;
   public hide = true;
   constructor(private fb: FormBuilder,
-              private authService: AuthService,
+              private authService: AuthCoreService,
               private router: Router) { }
 
   ngOnInit() {

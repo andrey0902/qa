@@ -7,6 +7,11 @@ import { RouterModule } from '@angular/router';
       {
         path: 'auth',
         loadChildren: './auth/auth.module#AuthModule',
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        loadChildren: './dashboard/dashboard.module#DashboardModule'
       }
     ], {
       useHash: true,

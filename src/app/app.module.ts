@@ -22,11 +22,11 @@ import { TokenInterceptor } from './core/services/intercepter.service';
     HttpClientModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true
+    // },
   ],
   bootstrap: [AppComponent]
 })
