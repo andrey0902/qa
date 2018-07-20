@@ -5,6 +5,7 @@ import { UserModel } from '../model/User-model';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { ConfigService } from '../config/config-service';
+import { ProfileService } from './profile.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ import { ConfigService } from '../config/config-service';
 export class AuthCoreService {
 
   constructor(private router: Router,
-              private http: HttpClient) { }
+              private http: HttpClient,
+              private profileService: ProfileService) { }
 
   public isLogin(): boolean {
     return !!SessionService.getUser() && SessionService.getKey();
@@ -37,8 +39,9 @@ export class AuthCoreService {
 
   public login(data) {
     return this.http.post(ConfigService.signInPath, data)
-      .pipe(tap(res => {
+      .pipe(tap((res: any) => {
         this.setStorage(res);
+        this.profileService.profileSource.next(new UserModel(res.user));
       }), map((res: any) => {
         return new UserModel(res.user);
       }));

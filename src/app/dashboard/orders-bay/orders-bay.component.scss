@@ -1,11 +1,11 @@
 @import "../../../styles/variables";
 .item-order {
-  margin-top: 15px;
-  margin-bottom: 10px;
+  //margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .btn {
-  background-color: $orange !important;
+  background-color: #24335f !important;
   padding: 4px 5px;
   font-size: 14px;
   border-radius: 4px;
@@ -13,8 +13,45 @@
   display: block;
 
   &-width {
-    width: 33%;
+    min-width: 33%;
     color: #fff;
     margin: 0 auto;
   }
+}
+
+.delete {
+  background-color: #e24c2c !important;
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: 'Amiko', sans-serif;
+  display: block;
+  color: #fff;
+  min-width: 33%;
+}
+
+.description-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    width: 50%;
+  }
+}
+
+.order-name {
+  display: inline-block;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-text {
+  font-size: 18px;
 }

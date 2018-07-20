@@ -46,7 +46,8 @@ export class AddOrderComponent implements OnInit {
       quantity: null,
       cost: null,
       status: null,
-      bidType: null
+      bidType: null,
+      id: null
     });
   }
 
@@ -56,7 +57,8 @@ export class AddOrderComponent implements OnInit {
       quantity: data.quantity,
       cost: data.cost,
       status: data.status,
-      bidType: data.bidType
+      bidType: data.bidType,
+      id: data.id
     });
   }
 

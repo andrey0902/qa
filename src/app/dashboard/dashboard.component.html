@@ -4,19 +4,31 @@
     <div class="container-fluid ">
       <div class="row">
         <div class="col-12 col-lg-4 ">
-          <div class="block-orders">
+          <div class="orders-header">
+            <h2 class="title">
+              All Orders List
+            </h2>
             <button type="button" mat-raised-button class="btn btn-width"
                     (click)="openModal()"
             >
               Add Order
             </button>
+          </div>
+          <div class="block-orders">
             <qa-orders-bay [orders]="orders"
                            (editOrder)="onEditOrder($event)"
+                           (deleteOrder)="onDeleteOrder($event)"
             ></qa-orders-bay>
           </div>
         </div>
         <div class="col-12 col-lg-8 ">
           <div class="block-table-result">
+            <div class="orders-header orders-history">
+              <h2 class="title">
+                History Orders List
+              </h2>
+            </div>
+            <qa-history-orders [historyList]="historyList"></qa-history-orders>
           </div>
         </div>
       </div>

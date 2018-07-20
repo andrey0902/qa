@@ -1,33 +1,51 @@
 @import "../../styles/variables";
 
 .wrapper {
-  margin-top: 30px;
+  padding-top: 30px;
   background-color: rgba(112, 109, 127, 0.08);
+  min-height: calc(100vh - 80px);
 }
 
 .title {
   color: $accent-gray;
-  padding: 35px 15px;
   font-family: 'Amiko', sans-serif;
   font-size: 20px;
+  margin: 0;
 }
 
 .btn {
-  background-color: $orange !important;
-  padding: 10px 10px;
+  background-color: #4ac68a!important;
+  padding: 7px 7px;
   font-size: 18px;
   border-radius: 4px;
   font-family: 'Amiko', sans-serif;
-  display: block;
 
   &-width {
     width: 50%;
     color: #fff;
-    margin: 0 auto;
   }
 }
 
 .block-orders {
-  max-height: 80vh;
+  height: calc(100vh - 190px);
   overflow: auto;
+}
+
+.img-sell {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.orders {
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  &-history {
+    height: 70px;
+  }
 }

@@ -9,14 +9,20 @@ import { OrderModel } from '../shared/order-model';
 export class OrdersBayComponent implements OnInit {
   @Input() orders: OrderModel[];
   @Output() public editOrder = new EventEmitter<OrderModel>();
+  @Output() public deleteOrder = new EventEmitter<OrderModel>();
   constructor() { }
 
   ngOnInit() {
   }
 
   public onEdit(order) {
-    console.log('asd;lfjasd;f', order);
+
     this.editOrder.emit(order);
+  }
+
+  public onDelete(order) {
+    console.log('asd;lfjasd;f', order);
+    this.deleteOrder.emit(order);
   }
 
 }

@@ -1,0 +1,64 @@
+<div class="wrapper-faq">
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-12 offset-0 col-md-10 offset-md-1 col-lg-8 offset-lg-2">-->
+        <!--<div class="header-title">-->
+          <!--<h2 class="title">-->
+            <!--Have questions? Look here!-->
+          <!--</h2>-->
+          <!--<p class="description">-->
+            <!--Can't find an answer? Feel free to <a routerLink="/contact-us" class="contact-form">contact us</a> for support!-->
+          <!--</p>-->
+        <!--</div>-->
+        <div class="faq-accordion">
+          <mat-accordion *ngIf="historyList?.length">
+
+            <mat-expansion-panel [hideToggle]="true" *ngFor="let item of historyList">
+              <mat-expansion-panel-header>
+                <span class="close"></span>
+                <mat-panel-title>
+                  <p class="faq-title">
+                    <span class="order-text">Buying order name: </span>
+                    <span class="order-name"> {{item.buyingOrder.name}}</span>
+                  </p>
+                </mat-panel-title>
+                <mat-panel-description>
+                  <p class="order-cost">
+                    <span class="order-text">Cost: </span>
+                    <span class="order-name"> {{item.buyingOrder.cost}}</span>
+                  </p>
+                  <p class="order-cost">
+                    <span class="order-text">Quantity: </span>
+                    <span class="order-name"> {{item.quantity}}</span>
+                  </p>
+                  <p class="order-cost">
+                    <span class="order-text">Status: </span>
+                    <span class="order-name"> {{item.buyingOrder.status[0].name}}</span>
+                  </p>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="faq-description">
+                <p class="order-cost">
+                  <span class="order-text">Selling order name: </span>
+                  <span class="order-name"> {{item.sellingOrder.name}}</span>
+                </p>
+                <p class="order-cost">
+                  <span class="order-text">Cost: </span>
+                  <span class="order-name"> {{item.sellingOrder.cost}}</span>
+                </p>
+                <p class="order-cost">
+                  <span class="order-text">Quantity: </span>
+                  <span class="order-name"> {{item.quantity}}</span>
+                </p>
+                <p class="order-cost">
+                  <span class="order-text">Status: </span>
+                  <span class="order-name"> {{item.sellingOrder.status[0].name}}</span>
+                </p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>

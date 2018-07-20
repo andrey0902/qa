@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DashboardService } from './shared/dashboard.service';
 import { AddOrderComponent } from './add-order/add-order.component';
 import { MatDialog } from '@angular/material';
 import { OrderModel } from './shared/order-model';
+import { HistoryModel } from './shared/histor-model';
 
 @Component({
   selector: 'qa-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   public orders: OrderModel[];
+  public historyList: HistoryModel[];
   constructor(private dashboardService: DashboardService,
               public dialog: MatDialog) { }
 
@@ -20,12 +22,17 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getHistoryOrders()
       .subscribe(val => {
         console.log(val);
+        this.historyList = val;
       });
+  }
+
+  ngOnDestroy(): void {
+    this.dashboardService.onDestroy.next(true);
   }
 
   public getOrders(): void {
     this.dashboardService.getListOrders()
-      .subscribe((val: OrderModel[]) => {
+      .subscribe((val) => {
         console.log('orders', val);
         this.orders = val;
       });
@@ -57,6 +64,11 @@ export class DashboardComponent implements OnInit {
     this.openModal(order);
   }
 
+  public onDeleteOrder(order: OrderModel) {
+    this.dashboardService.deleteOrder(order)
+      .subscribe()
+  }
+
   public createOrder(data) {
     this.dashboardService.createOrder(data)
       .subscribe(val => {
@@ -65,7 +77,13 @@ export class DashboardComponent implements OnInit {
   }
 
   public updateOrder(data) {
-
+    this.dashboardService.updateOrder(data)
+      .subscribe(res => {
+        console.log('update order', res);
+        this.orders = this.dashboardService.updateListOrders(this.orders, res);
+      }, error => {
+        console.warn(error);
+      });
   }
 
 }

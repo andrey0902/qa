@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputNumberModule } from '../shared/input-number/input-number.module';
 import { SelectModule } from '../shared/select/select.module';
 import { OrdersBayComponent } from './orders-bay/orders-bay.component';
+import { HistoryOrdersComponent } from './history-orders/history-orders.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { OrdersBayComponent } from './orders-bay/orders-bay.component';
   declarations: [
     DashboardComponent,
     AddOrderComponent,
-    OrdersBayComponent
+    OrdersBayComponent,
+    HistoryOrdersComponent
   ],
   exports: [
     DashboardComponent
