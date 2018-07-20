@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { LogoModule } from '../logo/logo.module';
 
 import { HeaderComponent } from './header.component';
-import { MatButtonModule, MatIconModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatMenuModule, MatSelectModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -14,7 +16,10 @@ import { RouterModule } from '@angular/router';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatSelectModule,
     RouterModule,
+    ReactiveFormsModule,
+    TranslateModule.forChild(),
   ],
   declarations: [
     HeaderComponent

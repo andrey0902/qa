@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { TokenInterceptor } from './core/services/intercepter.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LanguageChangeService } from './core/services/language-change.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       useClass: TokenInterceptor,
       multi: true
     },
+    LanguageChangeService,
   ],
   bootstrap: [AppComponent]
 })

@@ -64,7 +64,6 @@ export class DashboardService {
     for (let i = 0; i < orders.length; i++) {
       if (orders[i].id === order.id) {
         orders[i] = order;
-        console.log('UPDATE LIST  ', orders[i]);
         break;
       }
     }
@@ -91,7 +90,6 @@ export class DashboardService {
 
   public filterLis(list: any[]) {
     return list.filter(item => {
-      console.log(item)
       if (item.buying_order.owner === this.user.id) {
         return item;
       }

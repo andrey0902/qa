@@ -2,5 +2,8 @@
   "HOME": {
     "TITLE": "Hello Angular with ngx-translate!",
     "SELECT": "Change language"
-  }
+  },
+  "allOrdersList":"All Orders List",
+  "addOrder": "Add Order",
+  "history": "History Orders List"
 }

@@ -6,12 +6,12 @@
         <div class="col-12 col-lg-4 ">
           <div class="orders-header">
             <h2 class="title">
-              All Orders List
+              {{'allOrdersList' | translate}}
             </h2>
             <button type="button" mat-raised-button class="btn btn-width"
                     (click)="openModal()"
             >
-              Add Order
+              {{'addOrder' | translate}}
             </button>
           </div>
           <div class="block-orders">
@@ -25,7 +25,7 @@
           <div class="block-table-result">
             <div class="orders-header orders-history">
               <h2 class="title">
-                History Orders List
+                 {{'history' | translate}}
               </h2>
             </div>
             <qa-history-orders [historyList]="historyList"></qa-history-orders>

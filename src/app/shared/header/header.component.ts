@@ -5,6 +5,9 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { ProfileService } from '../../core/services/profile.service';
 import { AuthCoreService } from '../../core/services/auth-core.service';
+import { FormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageChangeService } from '../../core/services/language-change.service';
 
 @Component({
   selector: 'qa-header',
@@ -14,14 +17,21 @@ import { AuthCoreService } from '../../core/services/auth-core.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   public onDestroy = new Subject();
   public user;
+  public languageControl: FormControl;
   constructor(private profileService: ProfileService,
               private authService: AuthCoreService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+              public translate: TranslateService,
+              public languageService: LanguageChangeService) {
+    translate.addLangs(['en', 'fr']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+  }
 
   ngOnInit() {
+    this.createControl();
     this.getUser();
-
   }
 
   ngOnDestroy() {
@@ -33,6 +43,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.onDestroy))
       .subscribe(res => {
         this.user = res;
+      });
+  }
+
+  public createControl() {
+    this.languageControl = new FormControl(this.translate.currentLang);
+
+    this.languageControl.valueChanges
+      .pipe(takeUntil(this.onDestroy))
+      .subscribe(val => {
+        console.log('Language', val);
+        this.languageService.setLanguage$(val);
       });
   }
 

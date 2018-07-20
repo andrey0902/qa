@@ -17,6 +17,7 @@ import { SelectModule } from '../shared/select/select.module';
 import { OrdersBayComponent } from './orders-bay/orders-bay.component';
 import { HistoryOrdersComponent } from './history-orders/history-orders.component';
 import { DashboardService } from './shared/dashboard.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { DashboardService } from './shared/dashboard.service';
     MatIconModule,
     SelectModule,
     MatCardModule,
+    TranslateModule.forChild(),
   ],
   declarations: [
     DashboardComponent,
@@ -45,7 +47,7 @@ import { DashboardService } from './shared/dashboard.service';
     DashboardComponent
   ],
   providers: [
-   
+
   ],
   entryComponents: [
     AddOrderComponent

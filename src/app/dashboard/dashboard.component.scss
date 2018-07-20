@@ -21,8 +21,9 @@
   font-family: 'Amiko', sans-serif;
 
   &-width {
-    width: 50%;
+    min-width: 50%;
     color: #fff;
+    max-width: 300px;
   }
 }
 

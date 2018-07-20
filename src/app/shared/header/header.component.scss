@@ -28,6 +28,10 @@ mat-icon {
   color: $light-white;
 }
 
+mat-form-field {
+  max-width: 100px;
+}
+
 .user-name {
   color: $light-white;
   font-family: 'Amiko', sans-serif;

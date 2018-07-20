@@ -3,7 +3,20 @@
     <qa-logo></qa-logo>
   </div>
   <div class="header-profile">
-  <div class="header-profile-wrappeer">
+  <div class="header-profile-wrapper">
+    <mat-form-field>
+      <mat-select placeholder="Language" [formControl]="languageControl">
+        <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang" >
+          <span style="text-transform: uppercase">{{lang}}</span>
+        </mat-option>
+        <!--<mat-option [value]="'en'" >-->
+          <!--EN-->
+        <!--</mat-option>-->
+        <!--<mat-option [value]="'fr'">-->
+          <!--FR-->
+        <!--</mat-option>-->
+      </mat-select>
+    </mat-form-field>
     <button mat-button [matMenuTriggerFor]="menu">
       <span class="user-name">{{user?.name}}</span>
       <mat-icon>keyboard_arrow_down</mat-icon>
