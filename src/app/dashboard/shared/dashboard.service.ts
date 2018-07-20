@@ -37,6 +37,7 @@ export class DashboardService {
   public getHistoryOrders(): Observable<HistoryModel[]> {
     return this.http.get(ConfigService.ordersHistoryPath)
       .pipe(map((res: any) => {
+        res = this.filterLis(res);
         return res.map(item => new HistoryModel(item));
       }));
   }
@@ -81,9 +82,18 @@ export class DashboardService {
   }
 
   public filterListByUser(list: OrderModel[]) {
-    return list.filter(order => {
-      if (order.owner === this.user.id) {
-        return order;
+    return list.filter(item => {
+      if (item.owner === this.user.id) {
+        return item;
+      }
+    });
+  }
+
+  public filterLis(list: any[]) {
+    return list.filter(item => {
+      console.log(item)
+      if (item.buying_order.owner === this.user.id) {
+        return item;
       }
     });
   }

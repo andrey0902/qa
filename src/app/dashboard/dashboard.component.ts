@@ -4,6 +4,7 @@ import { AddOrderComponent } from './add-order/add-order.component';
 import { MatDialog } from '@angular/material';
 import { OrderModel } from './shared/order-model';
 import { HistoryModel } from './shared/histor-model';
+import { mergeMap } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'qa-dashboard',
@@ -66,13 +67,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public onDeleteOrder(order: OrderModel) {
     this.dashboardService.deleteOrder(order)
-      .subscribe()
+      .pipe(mergeMap(val => this.dashboardService.getListOrders()))
+      .subscribe(val => {
+        console.log(val);
+        this.orders = val;
+      });
   }
 
   public createOrder(data) {
     this.dashboardService.createOrder(data)
+      .pipe(mergeMap(val => this.dashboardService.getListOrders()))
       .subscribe(val => {
         console.log(val);
+        this.orders = val;
       });
   }
 

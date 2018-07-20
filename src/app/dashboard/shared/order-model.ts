@@ -1,15 +1,15 @@
 import { StatusModel } from './status-model';
 
-enum BidType {
-   '1' = 'Selling',
-   '2' = 'Buying'
- }
+const BidType = {
+   1: 'Selling',
+   2: 'Buying'
+ };
 
- enum Status {
-  '1' = 'Opened',
-  '2' = 'Pending',
-  '3' = 'Closed',
- }
+const Status = {
+  1: 'Opened',
+  2: 'Pending',
+  3: 'Closed',
+ };
 
 export class OrderModel {
   public bidType: StatusModel[];

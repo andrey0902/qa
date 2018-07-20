@@ -16,6 +16,7 @@ import { InputNumberModule } from '../shared/input-number/input-number.module';
 import { SelectModule } from '../shared/select/select.module';
 import { OrdersBayComponent } from './orders-bay/orders-bay.component';
 import { HistoryOrdersComponent } from './history-orders/history-orders.component';
+import { DashboardService } from './shared/dashboard.service';
 
 @NgModule({
   imports: [
@@ -44,7 +45,7 @@ import { HistoryOrdersComponent } from './history-orders/history-orders.componen
     DashboardComponent
   ],
   providers: [
-    ProfileService
+   
   ],
   entryComponents: [
     AddOrderComponent
