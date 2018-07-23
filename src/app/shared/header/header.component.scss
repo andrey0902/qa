@@ -43,6 +43,9 @@ mat-form-field {
   text-overflow: ellipsis;
 }
 
+.language {
+  text-transform: uppercase;
+}
 .link {
   color: $gray-text;
   text-decoration: none;

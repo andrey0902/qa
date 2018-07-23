@@ -4,19 +4,16 @@
   </div>
   <div class="header-profile">
   <div class="header-profile-wrapper">
-    <mat-form-field>
-      <mat-select placeholder="Language" [formControl]="languageControl">
-        <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang" >
-          <span style="text-transform: uppercase">{{lang}}</span>
-        </mat-option>
-        <!--<mat-option [value]="'en'" >-->
-          <!--EN-->
-        <!--</mat-option>-->
-        <!--<mat-option [value]="'fr'">-->
-          <!--FR-->
-        <!--</mat-option>-->
-      </mat-select>
-    </mat-form-field>
+
+    <button mat-button [matMenuTriggerFor]="lan">
+      <span class="user-name language">{{language}}</span>
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #lan="matMenu">
+      <button class="link" [class.active]="language === 'en'" (click)="setLanguage('en')" mat-menu-item >EN</button>
+      <button class="link" [class.active]="language === 'fr'" (click)="setLanguage('fr')" mat-menu-item >FR</button>
+    </mat-menu>
+
     <button mat-button [matMenuTriggerFor]="menu">
       <span class="user-name">{{user?.name}}</span>
       <mat-icon>keyboard_arrow_down</mat-icon>

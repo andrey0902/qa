@@ -52,8 +52,7 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <div class="action" [class.flex-between]="canDelete">
-    <button mat-button class="btn edit text-avenir-medium" *ngIf="canDelete" (click)="delete()">Delete</button>
+  <div class="action">
     <button class="btn btn-width" (click)="form.ngSubmit.emit()">Save</button>
     <!--<odds-button [invalid]=" orderForm.invalid"-->
                  <!--[fortSize]="'16px'"-->

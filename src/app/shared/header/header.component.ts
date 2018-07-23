@@ -18,12 +18,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public onDestroy = new Subject();
   public user;
   public languageControl: FormControl;
+  public language = 'en';
   constructor(private profileService: ProfileService,
               private authService: AuthCoreService,
               public translate: TranslateService,
               public languageService: LanguageChangeService) {
     translate.addLangs(['en', 'fr']);
-    translate.setDefaultLang('en');
+    translate.setDefaultLang(this.language);
 
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
@@ -59,6 +60,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public logOut() {
     this.authService.logOut();
+  }
+
+  public setLanguage(val: string) {
+    this.languageService.setLanguage$(val);
+    this.language = val;
   }
 
 }
