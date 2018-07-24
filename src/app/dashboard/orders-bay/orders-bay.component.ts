@@ -21,7 +21,6 @@ export class OrdersBayComponent implements OnInit {
   }
 
   public onDelete(order) {
-    console.log('asd;lfjasd;f', order);
     this.deleteOrder.emit(order);
   }
 

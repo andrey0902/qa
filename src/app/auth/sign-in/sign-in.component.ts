@@ -31,7 +31,6 @@ export class SignInComponent implements OnInit {
   public onSubmit(form: FormGroup): void {
     this.authService.login(form.value)
       .subscribe(val => {
-        console.log(val);
         this.router.navigate(['/']);
       },
         error => {

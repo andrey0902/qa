@@ -34,7 +34,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public getOrders(): void {
     this.dashboardService.getListOrders()
       .subscribe((val) => {
-        console.log('orders', val);
         this.orders = val;
       });
   }
@@ -61,7 +60,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public onEditOrder(order: OrderModel) {
-    console.log(order);
     this.openModal(order);
   }
 
@@ -69,7 +67,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.dashboardService.deleteOrder(order)
       .pipe(mergeMap(val => this.dashboardService.getListOrders()))
       .subscribe(val => {
-        console.log(val);
         this.orders = val;
       });
   }
@@ -78,7 +75,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.dashboardService.createOrder(data)
       .pipe(mergeMap(val => this.dashboardService.getListOrders()))
       .subscribe(val => {
-        console.log(val);
         this.orders = val;
       });
   }
@@ -86,7 +82,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public updateOrder(data) {
     this.dashboardService.updateOrder(data)
       .subscribe(res => {
-        console.log('update order', res);
         this.orders = this.dashboardService.updateListOrders(this.orders, res);
       }, error => {
         console.warn(error);

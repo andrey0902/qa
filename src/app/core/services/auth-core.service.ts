@@ -50,7 +50,6 @@ export class AuthCoreService {
   public signUp(data) {
     return this.http.post(ConfigService.signUpPath, data)
       .pipe(map(val => {
-        console.log('val', val);
         return val;
       }));
   }
