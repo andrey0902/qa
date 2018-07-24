@@ -1,17 +1,17 @@
 <div class="wrapper" *ngIf="orders?.length">
   <mat-card class="item-order" *ngFor="let order of orders">
     <mat-card-title>
-      <span class="order-text">Order name: </span>
+      <span class="order-text">{{'order_name' | translate}}: </span>
       <span class="order-name">{{order?.name}}</span>
     </mat-card-title>
     <mat-card-subtitle>
       <div class="description-wrapper">
-        <p>Order cost: <span>{{order?.cost}}</span></p>
-        <p>Order quantity: <span>{{order?.quantity}}</span></p>
+        <p>{{'order_cost' | translate}}: <span>{{order?.cost}}</span></p>
+        <p>{{'order_quantity' | translate}}: <span>{{order?.quantity}}</span></p>
       </div>
      <div class="description-wrapper">
-       <p>Order status: <span>{{order?.status[0]['name']}}</span></p>
-       <p>Bid type: <span>{{order?.bidType[0]['name']}}</span></p>
+       <p>{{'order_status' | translate}}: <span>{{order?.status[0]['name']}}</span></p>
+       <p>{{'bid_type' | translate}}: <span>{{order?.bidType[0]['name']}}</span></p>
      </div>
     </mat-card-subtitle>
     <mat-card-actions>
@@ -19,12 +19,12 @@
         <button type="button" mat-raised-button class="delete"
                 (click)="onDelete(order)"
         >
-          Delete Order
+          {{'btn_del' | translate}}
         </button>
         <button type="button" mat-raised-button class="btn btn-width"
                 (click)="onEdit(order)"
         >
-          Edit Order
+          {{'btn_edit' | translate}}
         </button>
       </div>
     </mat-card-actions>

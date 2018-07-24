@@ -1,8 +1,9 @@
+<qa-header></qa-header>
 <div class="wrapper">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-        <h2 class="title">Sign Up</h2>
+        <h2 class="title">{{'sign_up' | translate}}</h2>
       </div>
     </div>
 
@@ -16,20 +17,20 @@
               <!--<odds-error [form]="signUp" [errors]="serverError" [errorName]="'none_field'"></odds-error>-->
             <!--</div>-->
             <mat-form-field>
-              <input matInput placeholder="Name" formControlName="username" type="text">
+              <input matInput [placeholder]="'name' | translate" formControlName="username" type="text">
               <!--<mat-error *ngIf="signUp.get('name').invalid">{{getErrorMessage(signUp.get('name'))}}</mat-error>-->
               <qa-error class="server-error1" *ngIf="serverError" [form]="signUp" [errors]="serverError" [errorName]="'username'"></qa-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" type="email">
+              <input matInput [placeholder]="'email' | translate" formControlName="email" type="email">
               <!--<mat-error *ngIf="signUp.get('email').invalid">{{getErrorMessage(signUp.get('email'))}}</mat-error>-->
               <qa-error class="server-error1" *ngIf="serverError" [form]="signUp" [errors]="serverError" [errorName]="'email'"></qa-error>
 
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Enter your password" formControlName="password1" [type]="hide ? 'password' : 'text'">
+              <input matInput [placeholder]="'password' | translate" formControlName="password1" [type]="hide ? 'password' : 'text'">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
               <!--<mat-error *ngIf="signUp.get('password').invalid">{{getErrorMessage(signUp.get('password'))}}</mat-error>-->
               <qa-error class="server-error1" *ngIf="serverError" [form]="signUp" [errors]="serverError" [errorName]="'password1'"></qa-error>
@@ -37,7 +38,7 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Enter your confirm password" formControlName="password2" [type]="hide ? 'password' : 'text'">
+              <input matInput [placeholder]="'confirm_password' | translate" formControlName="password2" [type]="hide ? 'password' : 'text'">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
               <!--<mat-error *ngIf="signUp.get('password').invalid">{{getErrorMessage(signUp.get('password'))}}</mat-error>-->
               <qa-error class="server-error1" *ngIf="serverError" [form]="signUp" [errors]="serverError" [errorName]="'password2'"></qa-error>
@@ -47,12 +48,12 @@
                     [disabled]="signUp.invalid"
                     [class.valid]="signUp.valid"
             >
-              Sign Up
+              {{'sign_up' | translate}}
             </button>
           </form>
         </div>
         <div class="have-account">
-          Already have an account? <a class="link login" routerLink="/auth/sign-in">Log in here</a>
+          {{'have_account' | translate}} <a class="link login" routerLink="/auth/sign-in">{{'login' | translate}}</a>
         </div>
       </div>
     </div>

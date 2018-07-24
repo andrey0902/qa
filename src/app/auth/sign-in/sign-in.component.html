@@ -1,8 +1,9 @@
+<qa-header></qa-header>
 <div class="wrapper">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-        <h2 class="title">Sign In</h2>
+        <h2 class="title">{{'sign_in' | translate}}</h2>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -15,18 +16,18 @@
           </div>
           <div class="form-name">
             <mat-form-field>
-              <input matInput placeholder="Name" formControlName="username" type="text">
+              <input matInput [placeholder]="'name' | translate" formControlName="username" type="text">
               <!--<mat-error *ngIf="signUp.get('name').invalid">{{getErrorMessage(signUp.get('name'))}}</mat-error>-->
               <!--<odds-error class="server-error1" *ngIf="serverError" [form]="signUp" [errors]="serverError" [errorName]="'name'"></odds-error>-->
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Email address" formControlName="email" type="email">
+              <input matInput [placeholder]="'email' | translate" formControlName="email" type="email">
               <!--<mat-error *ngIf="signIn.get('email').invalid">{{getErrorMessage(signIn.get('email'))}}</mat-error>-->
             </mat-form-field>
           </div>
           <div class="form-password">
             <mat-form-field>
-              <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+              <input matInput [placeholder]="'password' | translate" formControlName="password" [type]="hide ? 'password' : 'text'">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
               <!--<mat-error *ngIf="signIn.get('password').invalid">{{getErrorMessage(signIn.get('password'))}}</mat-error>-->
             </mat-form-field>
@@ -37,7 +38,7 @@
                   [disabled]="signIn.invalid"
                   [class.valid]="signIn.valid"
           >
-            Sign In
+            {{'sign_in' | translate}}
           </button>
 
         </form>
@@ -46,7 +47,7 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-4 col-sm-7">
         <p class="no-account">
-          Don't have an account yet? <a class="link" [routerLink]="['/auth/sign-up']">Sign up here</a>
+          {{'no_account' | translate}} <a class="link" [routerLink]="['/auth/sign-up']">{{'sign_here' | translate}}</a>
         </p>
       </div>
     </div>

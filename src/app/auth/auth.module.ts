@@ -9,6 +9,8 @@ import { AuthService } from './shared/service/auth.service';
 import { ServerErrorModule } from '../shared/server-error/server-error.module';
 import { ServerNonErrorModule } from '../shared/server-error-non/server-error.module';
 import { AuthCoreService } from '../core/services/auth-core.service';
+import { HeaderModule } from '../shared/header/header.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -21,6 +23,8 @@ import { AuthCoreService } from '../core/services/auth-core.service';
     MatButtonModule,
     ServerErrorModule,
     ServerNonErrorModule,
+    HeaderModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     SignInComponent,
